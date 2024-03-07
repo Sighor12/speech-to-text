@@ -22,9 +22,9 @@ image = Image.open('traductor.jpg')
 st.image(image)
 
 
-st.write("Toca el Botón y habla lo que quires traducir")
+st.write("oprime el botón y habla para traducir")
 
-stt_button = Button(label=" Inicio ", width=200)
+stt_button = Button(label=" Iniciar ", width=200)
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
@@ -66,7 +66,7 @@ if result:
     text = str(result.get("GET_TEXT"))
     in_lang = st.selectbox(
         "Selecciona el lenguaje de Entrada",
-        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés", "Francés", "Alemán"),
+        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés", "Francés"),
     )
     if in_lang == "Inglés":
         input_language = "en"
@@ -82,12 +82,10 @@ if result:
         input_language = "ja"
     elif in_lang == "Francés":
         input_language = "fr"
-    elif in_lang == "Alemán":
-        input_language = "de"
     
     out_lang = st.selectbox(
         "Selecciona el lenguaje de salida",
-        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés", "Francés", "Alemán"),
+        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés", "Francés"),
     )
     if out_lang == "Inglés":
         output_language = "en"
@@ -103,8 +101,6 @@ if result:
         output_language = "ja"
     elif in_lang == "Francés":
         output_language = "fr"
-     elif in_lang == "Alemán":
-        output_language = "de"
     
     english_accent = st.selectbox(
         "Selecciona el acento",
